@@ -39,9 +39,13 @@ sourceSets {
 dependencies {
     // Use the latest Groovy version for building this library
     compile 'org.codehaus.groovy:groovy-all:2.5.4'
+    compile 'com.lesfurets:jenkins-pipeline-unit:1.1'
     compile 'org.jenkins-ci.main:jenkins-core:2.164.1'
     compile 'org.jenkins-ci.plugins.workflow:workflow-step-api:2.19@jar'
     compile 'org.jenkins-ci.plugins:pipeline-utility-steps:2.2.0@jar'
+    compile 'org.apache.ivy:ivy:2.4.0'
+    def staplerGAV = 'org.kohsuke.stapler:stapler:1.255'
+    compile staplerGAV
     // Use the awesome Spock testing and specification framework
     compile 'org.spockframework:spock-core:1.2-groovy-2.5'
 }
