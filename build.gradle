@@ -15,12 +15,33 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    maven {
+        url "https://repo.jenkins-ci.org/releases/"
+    }
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDirs = ['src','vars']
+        }
+        resources {
+            srcDirs = ['resources']
+        }
+    }
+    test {
+        groovy {
+            srcDirs = ['test']
+        }
+    }
 }
 
 dependencies {
     // Use the latest Groovy version for building this library
-    implementation 'org.codehaus.groovy:groovy-all:2.5.4'
-
+    compile 'org.codehaus.groovy:groovy-all:2.5.4'
+    compile 'org.jenkins-ci.main:jenkins-core:2.164.1'
+    compile 'org.jenkins-ci.plugins.workflow:workflow-step-api:2.19@jar'
+    compile 'org.jenkins-ci.plugins:pipeline-utility-steps:2.2.0@jar'
     // Use the awesome Spock testing and specification framework
-    testImplementation 'org.spockframework:spock-core:1.2-groovy-2.5'
+    compile 'org.spockframework:spock-core:1.2-groovy-2.5'
 }
